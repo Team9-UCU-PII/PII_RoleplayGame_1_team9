@@ -79,7 +79,7 @@ namespace Program
 
         }
 
-        public void AñadirHechizo(Spell hechizo)
+        public void AñadirHechizo(Hechizo hechizo)
         {
             if (this.Tipo == "LIBRO")
             {
