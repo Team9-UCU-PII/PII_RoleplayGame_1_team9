@@ -3,7 +3,26 @@ namespace Program
     public class Item
     {
         public string Nombre {get;set;}
-        public string Tipo {get; set;}
+        public string Tipo 
+        {
+            get
+            {
+                return this.Tipo;
+            }
+            set
+            {
+                if ((value == "ARMA") || (value == "ARMADURA"))
+                {
+                    this.Tipo = value;
+                }
+                else
+                {
+                    {
+                        this.Tipo = null;
+                    }
+                }
+            }
+        }
         
         public int DMG 
         {
@@ -55,8 +74,8 @@ namespace Program
 
             Item espadaStarter = new Item("Espada de Madera", "ARMA", 8, 0);
             Item espadaAvanzada = new Item("Espada de Diamante", "ARMA", 16, 0);
-            Item armaduraStarter = new Item("Armadura de Cuero", "ARMADURA", 0, 9);
-            Item armaduraAvanzada = new Item("Armadura de Acero", "ARMADURA", 0, 20);
+            Item armaduraStarter = new Item("Armadura de Cuero", "ARMADURA", 0, 4);
+            Item armaduraAvanzada = new Item("Armadura de Acero", "ARMADURA", 0, 8);
          */
     }
 }
