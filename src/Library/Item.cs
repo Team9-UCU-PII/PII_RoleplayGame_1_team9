@@ -13,7 +13,7 @@ namespace Program
             } 
             set
             {
-                if (this.Tipo.ToUpper() == "ARMA")
+                if (this.Tipo == "ARMA")
                 {
                     this.DMG = value;
                 }
@@ -31,7 +31,7 @@ namespace Program
             } 
             set
             {
-                if (this.Tipo.ToUpper() == "ARMADURA")
+                if (this.Tipo == "ARMADURA")
                 {
                     this.DEF = value;
                 }
@@ -45,10 +45,18 @@ namespace Program
         public Item (string nombre, string tipo, int dmg, int def)
         {
             this.Nombre = nombre;
-            this.Tipo = tipo;
+            this.Tipo = tipo.ToUpper();
             this.DMG = dmg;
             this.DEF = def;
 
         }
+        
+         /* CrearItemsGenericos para copiar y pegar
+
+            Item espadaStarter = new Item("Espada de Madera", "ARMA", 8, 0);
+            Item espadaAvanzada = new Item("Espada de Diamante", "ARMA", 16, 0);
+            Item armaduraStarter = new Item("Armadura de Cuero", "ARMADURA", 0, 9);
+            Item armaduraAvanzada = new Item("Armadura de Acero", "ARMADURA", 0, 20);
+         */
     }
 }
