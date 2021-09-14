@@ -2,23 +2,29 @@ namespace Program
 {
     public class Item
     {
+        private string nombre;
+        private string tipo;
+        private int dmg;
+        private int def;
+
+        
         public string Nombre {get;set;}
         public string Tipo 
         {
             get
             {
-                return this.Tipo;
+                return this.tipo;
             }
             set
             {
-                if ((value == "ARMA") || (value == "ARMADURA"))
+                if ((value.ToUpper() == "ARMA") || (value.ToUpper() == "ARMADURA"))
                 {
-                    this.Tipo = value;
+                    this.tipo = value.ToUpper();
                 }
                 else
                 {
                     {
-                        this.Tipo = null;
+                        this.tipo = null;
                     }
                 }
             }
@@ -28,17 +34,17 @@ namespace Program
         {
             get
             {
-                return this.DMG;
+                return this.dmg;
             } 
             set
             {
                 if (this.Tipo == "ARMA")
                 {
-                    this.DMG = value;
+                    this.dmg = value;
                 }
                 else
                 {
-                    this.DMG = 0;
+                    this.dmg = 0;
                 }
             }
         }
@@ -46,17 +52,17 @@ namespace Program
         {
             get
             {
-                return this.DEF;
+                return this.def;
             } 
             set
             {
                 if (this.Tipo == "ARMADURA")
                 {
-                    this.DEF = value;
+                    this.def = value;
                 }
                 else
                 {
-                    this.DEF = 0;
+                    this.def = 0;
                 }
             }
         }
@@ -64,7 +70,7 @@ namespace Program
         public Item (string nombre, string tipo, int dmg, int def)
         {
             this.Nombre = nombre;
-            this.Tipo = tipo.ToUpper();
+            this.Tipo = tipo;
             this.DMG = dmg;
             this.DEF = def;
 
