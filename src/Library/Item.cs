@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Program
 {
     public class Item
@@ -6,8 +8,9 @@ namespace Program
         private string tipo;
         private int dmg;
         private int def;
+        public ArrayList HechizosGuardados;
 
-        
+
         public string Nombre {get;set;}
         public string Tipo 
         {
@@ -17,7 +20,7 @@ namespace Program
             }
             set
             {
-                if ((value.ToUpper() == "ARMA") || (value.ToUpper() == "ARMADURA"))
+                if ((value.ToUpper() == "ARMA") || (value.ToUpper() == "ARMADURA") || (value.ToUpper() == "LIBRO"))
                 {
                     this.tipo = value.ToUpper();
                 }
@@ -74,6 +77,14 @@ namespace Program
             this.DMG = dmg;
             this.DEF = def;
 
+        }
+
+        public void AñadirHechizo(Spell hechizo)
+        {
+            if (this.Tipo == "LIBRO")
+            {
+                HechizosGuardados.Add(hechizo);
+            }
         }
         
          /* CrearItemsGenericos para copiar y pegar
