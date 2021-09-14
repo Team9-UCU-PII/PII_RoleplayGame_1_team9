@@ -8,7 +8,8 @@ namespace Program
         {
             atacado.hpactualizado -= atacante.ataque - atacado.defensa
 
-            ConsoleLogger($"El personaje {atacado.nombre} ha sido atacado por {atacante.nombre}");
+            //se le envía los datos de los personajes implicados para que se imprima en pantalla
+            ConsoleLogger(atacante.nombre, atacante.arma, atacado.nombre, atacado.defensa, atacado.hpactualizado);
         }
 
         public static void Curacion(Personaje sanado, Personaje sanador)
@@ -17,11 +18,13 @@ namespace Program
             
             if (sanado.nombre == sanador.nombre)
             {
-                ConsoleLogger($"El personaje {sanado.nombre} se ha curado a sí mismo.");
+                //personaje que se sana a sí mismo
+                ConsoleLogger(sanado.nombre);
             }
             else
             {
-               ConsoleLogger($"El personaje {sanado.nombre} ha sido curado por {sanador.nombre}"); 
+                //personaje sanado por otro
+               ConsoleLogger(sanado.nombre, sanador.nombre); 
             }
              
         }
