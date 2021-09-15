@@ -1,30 +1,34 @@
+using System.Collections;
+using System.Linq;
+using System.Text;
+
 namespace Program
 {
     public class Item
     {
-        private string nombre;
-        private string tipo;
-        private int dmg;
-        private int def;
+        private string _tipo;
+        private static string[] _tiposValidos = {"ARMA", "ARMADURA", "LIBRO"};
+        private int _dmg;
+        private int _def;
+        public ArrayList HechizosGuardados = new ArrayList();
 
-        
         public string Nombre {get;set;}
         public string Tipo 
         {
             get
             {
-                return this.tipo;
+                return this._tipo;
             }
             set
             {
-                if ((value.ToUpper() == "ARMA") || (value.ToUpper() == "ARMADURA"))
+                if (_tiposValidos.Contains(value.ToUpper()))
                 {
-                    this.tipo = value.ToUpper();
+                    this._tipo = value.ToUpper();
                 }
                 else
                 {
                     {
-                        this.tipo = null;
+                        this._tipo = null;
                     }
                 }
             }
@@ -34,17 +38,17 @@ namespace Program
         {
             get
             {
-                return this.dmg;
+                return this._dmg;
             } 
             set
             {
                 if (this.Tipo == "ARMA")
                 {
-                    this.dmg = value;
+                    this._dmg = value;
                 }
                 else
                 {
-                    this.dmg = 0;
+                    this._dmg = 0;
                 }
             }
         }
@@ -52,17 +56,17 @@ namespace Program
         {
             get
             {
-                return this.def;
+                return this._def;
             } 
             set
             {
                 if (this.Tipo == "ARMADURA")
                 {
-                    this.def = value;
+                    this._def = value;
                 }
                 else
                 {
-                    this.def = 0;
+                    this._def = 0;
                 }
             }
         }
@@ -73,6 +77,27 @@ namespace Program
             this.Tipo = tipo;
             this.DMG = dmg;
             this.DEF = def;
+        }
+
+        public void AñadirHechizo(Hechizo hechizo)
+        {
+            if (this.Tipo == "LIBRO")
+            {
+                this.HechizosGuardados.Add(hechizo);
+            }
+        }
+
+        public string VerHechizosGuardados()
+        {
+            StringBuilder result = new StringBuilder();
+            if (this.Tipo == "LIBRO")
+            {
+                foreach (Hechizo spell in this.HechizosGuardados)
+                {
+                    result.Append($" * {spell.Nombre} \n");
+                }
+            }
+            return result.ToString();
 
         }
         
