@@ -11,8 +11,8 @@ namespace Program
         private int _dmg;
         private int _def;
         private ArrayList hechizosGuardados = new ArrayList();
-        
-        public ArrayList HechizosGuardados
+
+        public ArrayList HechizosGuardados 
         {
             get
             {
