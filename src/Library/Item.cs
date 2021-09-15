@@ -10,7 +10,15 @@ namespace Program
         private static string[] _tiposValidos = {"ARMA", "ARMADURA", "LIBRO"};
         private int _dmg;
         private int _def;
-        public ArrayList HechizosGuardados = new ArrayList();
+        private ArrayList hechizosGuardados = new ArrayList();
+        
+        public ArrayList HechizosGuardados
+        {
+            get
+            {
+                return this.hechizosGuardados;
+            }
+        }
 
         public string Nombre {get;set;}
         public string Tipo 
