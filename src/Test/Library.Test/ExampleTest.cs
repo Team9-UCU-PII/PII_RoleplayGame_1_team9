@@ -22,6 +22,30 @@ namespace Test.Library
             Assert.AreEqual(expectedDEF, espadaAvanzada.DEF);
 
         }
+        [Test]
+        public void spellCreationTest()
+        {
+            Hechizo spell = new Hechizo("spell", "Daño", 10);
+            string expectedType = "Daño";
+            string expectedName = "spell";
+            int expectedPower = 10;
+            Assert.AreSame(expectedName, spell.Nombre);
+            Assert.AreEqual(expectedType, spell.TipoEfecto);
+            Assert.AreEqual(expectedPower, spell.Poder);
+
+        }
+        [Test]
+        public void itemAndSpellTest()
+        {
+            Item libro = new Item("Sapo Ruperto", "LIBRO", 0, 0);
+            Hechizo spell1 = new Hechizo ("RupertoRocanrol", "Daño", 9000);
+            Hechizo spell2 = new Hechizo ("SanaSanaColitaDeRana", "Curación", 9000);
+            libro.AñadirHechizo(spell1);
+            libro.AñadirHechizo(spell2);
+            Assert.IsTrue(libro.HechizosGuardados.Contains(spell1));
+            //Assert.IsTrue(libro.HechizosGuardados.Contains(spell2));
+
+        }
 
     }
 

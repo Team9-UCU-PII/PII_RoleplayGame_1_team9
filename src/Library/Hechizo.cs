@@ -17,8 +17,11 @@ namespace Program {
         }
         public int Poder { get; set; }
 
-        public Hechizo(string nombre, string tipoEfecto, int poder) {
-
+        public Hechizo(string nombre, string tipoEfecto, int poder) 
+        {
+            this.Nombre = nombre;
+            this.TipoEfecto = tipoEfecto;
+            this.Poder = poder;
         }
     }
 }
