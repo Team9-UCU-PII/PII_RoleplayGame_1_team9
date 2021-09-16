@@ -10,6 +10,7 @@ namespace Test.Library
 
         [Test]
         public void itemCreationTest()
+        //se testea las asignaciones corerctas funcionen y las erroneas rechazadas
         {
             Item espadaAvanzada = new Item("Espada de Diamante", "ARMA", 16, 0);
             string expectedType = "ARMA";
@@ -24,6 +25,7 @@ namespace Test.Library
         }
         [Test]
         public void spellCreationTest()
+        //se testea la clase hechizo y su uso
         {
             Hechizo spell = new Hechizo("spell", "Daño", 10);
             string expectedType = "Daño";
@@ -36,6 +38,7 @@ namespace Test.Library
         }
         [Test]
         public void itemAndSpellTest()
+        //testeo de items especiales LIBRO y hechizos juntos (collab)
         {
             Item libro = new Item("Sapo Ruperto", "LIBRO", 0, 0);
             Hechizo spell1 = new Hechizo ("RupertoRocanrol", "Daño", 9000);
@@ -43,7 +46,7 @@ namespace Test.Library
             libro.AñadirHechizo(spell1);
             libro.AñadirHechizo(spell2);
             Assert.IsTrue(libro.HechizosGuardados.Contains(spell1));
-            //Assert.IsTrue(libro.HechizosGuardados.Contains(spell2));
+            Assert.IsTrue(libro.HechizosGuardados.Contains(spell2));
 
         }
 
