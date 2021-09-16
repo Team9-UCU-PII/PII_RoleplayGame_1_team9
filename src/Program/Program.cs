@@ -10,17 +10,38 @@ namespace Program
         {
             popularCatalogoItems();
 
-            foreach (Item item in catalogoItems)
-            {
-                Console.WriteLine(item.Nombre);
-                if (item.Tipo == "LIBRO")
-                {
-                    Console.WriteLine(item.VerHechizosGuardados());
-                }
-            }
+    //los personajes los ideaban cada integrante, Alonso solo escribió la implementación
+            Personaje maxiChar = new Personaje("Legolas", "ELFO");
+            agregarItemAlCatalogo("Arco élfico", "ARMA", 14, 0);
+            agregarItemAlCatalogo("Cota de Malla élfica", "ARMADURA", 0, 8);
+            maxiChar.AddItem(GetItem("Arco élfico"));
+            maxiChar.AddItem(GetItem("Cota de Malla élfica"));
+
+            Personaje danaChar = new Personaje("Danurris", "MAGO");
+            agregarItemAlCatalogo("El principito", "LIBRO", 0, 0);
+                Hechizo magiaDana = new Hechizo("Desconocerse", "Daño", 69);
+                GetItem("El principito").AñadirHechizo(magiaDana);
+            danaChar.AddItem(GetItem("Armadura de Acero"));
+            danaChar.AddItem(GetItem("El principito"));
+            
+            Personaje marceChar = new Personaje("Isandril", "MAGO");
+            agregarItemAlCatalogo("Arcaneum", "LIBRO", 0, 0);
+                Hechizo magiaMarce = new Hechizo("Tormenta de Arena", "Daño", 45);
+                GetItem("Arcaneum").AñadirHechizo(magiaMarce);
+            agregarItemAlCatalogo("Toga de Fuego", "ARMADURA", 0, 12);
+            marceChar.AddItem(GetItem("Toga de Fuego"));
+            marceChar.AddItem(GetItem("Arcaneum"));
+
+            Personaje alonsoChar = new Personaje("Torbjorn", "ENANO");
+            agregarItemAlCatalogo("Mjollnir", "ARMA", 18, 0);
+            agregarItemAlCatalogo("Cota de Konan", "ARMADURA", 0, 15);
+            alonsoChar.AddItem(GetItem("Mjollnir"));
+            alonsoChar.AddItem(GetItem("Cota de Konan"));
+
         }
 
-        private static ArrayList catalogoItems = new ArrayList();
+        private static ArrayList catalogoItems = new ArrayList(); 
+        //por si alguno le falta inspiracion
 
         private static void popularCatalogoItems()
         {
