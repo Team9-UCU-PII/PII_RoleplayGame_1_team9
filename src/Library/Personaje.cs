@@ -1,38 +1,66 @@
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace Program
 {
   public class Personaje
   {
-    const int ataqueBase = 5;
-    const int defensaBase = 2;
+    private const int K_ataqueBase = 5;
+    private const int K_defensaBase = 2;
+    private const int K_maxHP = 100;
+
+    private string nombre;
+
+    private string especie;
+
+    private static string[] especiesValidas = {"MAGO", "ENANO", "ELFO"};
     public Personaje(string nombre, string especie)
     {
       this.Nombre = nombre;
       this.Especie = especie;
-      this.HP = 100;
+      this.HP = K_maxHP;
     }
 
-    private int hp;
-
     public string Nombre{get; set;}
-    public string Especie{get; set;}
-    private ArrayList inventario;
+    public string Especie
+    {
+      get{
+        return this.especie;
+      }
+      set{
+          if (especiesValidas.Contains(value.ToUpper()))
+          {
+            this.especie = value.ToUpper();
+          }else
+          {
+            this.especie  = null;
+          }
+      }
+    }
+    private ArrayList inventario = new ArrayList();
+
+    public ArrayList Inventario
+      {
+        get
+      {
+        return this.inventario;
+      }
+    }
     public void AddItem(Item item)
     {
-      inventario.Add(item);
+      this.Inventario.Add(item);
     }
     public void RemoveItem(Item item)
     {
-      inventario.Remove(item);
+      this.Inventario.Remove(item);
     }
 
     public Item Arma 
     {
       get
       {
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMA")
           {
@@ -43,14 +71,29 @@ namespace Program
       }
     }
 
-
-    public int HP{get; set;}
+    private int hp;
+    public int HP{
+      get{
+        return this.hp;
+      }
+      set{
+        if(value < 0){
+          this.hp = 0;
+        }else {
+          if (value <= K_maxHP){
+            this.hp = value;
+          } else{
+            this.hp = K_maxHP;
+          }
+        }
+      }
+    }
 
     public int Ataque
     {
       get {
         int arma = 0;
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMA")
           {
@@ -59,7 +102,7 @@ namespace Program
             }
           }
         }
-        return arma + ataqueBase;
+        return arma + K_ataqueBase;
       }
       
     }
@@ -68,14 +111,33 @@ namespace Program
     {
       get{
         int def = 0;
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMADURA")
           {
             def = item.DEF;
           }
         }
-        return def + defensaBase;
+        return def + K_defensaBase;
+      }
+    }
+
+    public Item LibroEquipado
+    {
+      get{
+        if(this.especie == "MAGO"){
+          foreach (Item item in this.Inventario)
+          {
+            if(item.Tipo == "LIBRO")
+            {
+              return item;
+            }
+          }
+          return null;
+        }
+        else{
+          return null;
+        }
       }
     }
   }

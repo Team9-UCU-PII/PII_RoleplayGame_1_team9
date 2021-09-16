@@ -11,13 +11,22 @@ namespace Program
             //se le envía los datos de los personajes implicados en ataque para que se imprima en pantalla
             ConsoleLogger.ImprimirAtaque(atacante, atacado);
         }
-
-        public static void Curacion(Personaje sanador, Personaje sanado)
+        public static void LanzamientoHechizo(Personaje lanzador, Hechizo hechizo, Personaje objetivo)
         {
-            sanado.HP += sanador.Hechizo;
-            
-            //se le envía los datos de los personajes implicados en curación para que se imprima en pantalla
-            ConsoleLogger.ImprimirAtaque(sanado, sanador);
+            if(hechizo.TipoEfecto == "Daño" && lanzador.LibroEquipado.HechizosGuardados.Contains(hechizo))
+            {
+                objetivo.HP -= hechizo.Poder;
+
+                //se le envía los datos de los personajes implicados lanzamiento de hechizo de ataque para que se imprima en pantalla
+                ConsoleLogger.ImprimirLanzamientoHechizo(lanzador, hechizo, objetivo);
+            }
+            if(hechizo.TipoEfecto == "Curación" && lanzador.LibroEquipado.HechizosGuardados.Contains(hechizo))
+            {
+                objetivo.HP += hechizo.Poder;
+
+                //se le envía los datos de los personajes implicados lanzamiento de hechizo de curación para que se imprima en pantalla
+                ConsoleLogger.ImprimirLanzamientoHechizo(lanzador, hechizo, objetivo);
+            }
         }
     }
 }
