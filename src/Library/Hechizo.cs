@@ -4,7 +4,7 @@ namespace Program {
     public class Hechizo {
         private static string[] _tiposHechizos = {"Daño", "Curación"};
         public string Nombre { get; set; }
-        public string _tipoEfecto;
+        private string _tipoEfecto;
         public string TipoEfecto {
             get {
                 return _tipoEfecto;
