@@ -14,8 +14,6 @@ namespace Program
       this.HP = 100;
     }
 
-    private int hp;
-
     public string Nombre{get; set;}
     public string Especie{get; set;}
     private ArrayList inventario;
@@ -43,7 +41,7 @@ namespace Program
       }
     }
 
-
+    private int hp;
     public int HP{get; set;}
 
     public int Ataque
