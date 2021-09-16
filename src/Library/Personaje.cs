@@ -15,8 +15,6 @@ namespace Program
       this.HP = K_maxHP;
     }
 
-    private int hp;
-
     public string Nombre{get; set;}
     public string Especie{get; set;}
     private ArrayList inventario;
@@ -44,6 +42,7 @@ namespace Program
       }
     }
 
+    private int hp;
     public int HP{
       get{
         return this.hp;
