@@ -10,9 +10,9 @@ namespace Program
         private static string[] _tiposValidos = {"ARMA", "ARMADURA", "LIBRO"};
         private int _dmg;
         private int _def;
-        private ArrayList hechizosGuardados = new ArrayList();
-        
-        public ArrayList HechizosGuardados
+        private ArrayList hechizosGuardados;
+
+        public ArrayList HechizosGuardados 
         {
             get
             {
@@ -85,6 +85,11 @@ namespace Program
             this.Tipo = tipo;
             this.DMG = dmg;
             this.DEF = def;
+
+            if (this.Tipo == "LIBRO")
+            {
+                this.hechizosGuardados = new ArrayList();
+            }
         }
 
         public void AñadirHechizo(Hechizo hechizo)
