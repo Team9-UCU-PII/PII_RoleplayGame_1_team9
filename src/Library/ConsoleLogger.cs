@@ -5,7 +5,7 @@ namespace Program {
     public static class ConsoleLogger {
         public static void ImprimirAtaque(Personaje atacante, Personaje atacado) {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{atacante.Nombre} atacó a {atacado.Nombre} con {atacante.Arma}.");
+            sb.Append($"{atacante.Nombre} atacó a {atacado.Nombre} con {atacante.Arma.Nombre}.");
             if (atacado.HP > 0) {
                 sb.Append($" {atacado.Nombre} quedó con {atacado.HP} HP.");
             }
