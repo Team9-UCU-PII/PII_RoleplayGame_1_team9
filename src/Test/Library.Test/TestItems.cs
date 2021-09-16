@@ -17,7 +17,7 @@ namespace Test.Library
             string expectedName = "Espada de Diamante";
             int expectedDMG = 16;
             int expectedDEF = 0;
-            Assert.AreSame(expectedName, espadaAvanzada.Nombre);
+            Assert.AreEqual(expectedName, espadaAvanzada.Nombre);
             Assert.AreEqual(expectedType, espadaAvanzada.Tipo);
             Assert.AreEqual(expectedDMG, espadaAvanzada.DMG);
             Assert.AreEqual(expectedDEF, espadaAvanzada.DEF);
