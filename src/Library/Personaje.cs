@@ -5,13 +5,14 @@ namespace Program
 {
   public class Personaje
   {
-    const int ataqueBase = 5;
-    const int defensaBase = 2;
+    private const int K_ataqueBase = 5;
+    private const int K_defensaBase = 2;
+    private const int K_maxHP = 100;
     public Personaje(string nombre, string especie)
     {
       this.Nombre = nombre;
       this.Especie = especie;
-      this.HP = 100;
+      this.HP = K_maxHP;
     }
 
     private int hp;
@@ -43,8 +44,22 @@ namespace Program
       }
     }
 
-
-    public int HP{get; set;}
+    public int HP{
+      get{
+        return this.hp;
+      }
+      set{
+        if(value < 0){
+          this.hp = 0;
+        }else {
+          if (value <= K_maxHP){
+            this.hp = value;
+          } else{
+            this.hp = K_maxHP;
+          }
+        }
+      }
+    }
 
     public int Ataque
     {
@@ -59,7 +74,7 @@ namespace Program
             }
           }
         }
-        return arma + ataqueBase;
+        return arma + K_ataqueBase;
       }
       
     }
@@ -75,7 +90,7 @@ namespace Program
             def = item.DEF;
           }
         }
-        return def + defensaBase;
+        return def + K_defensaBase;
       }
     }
   }
