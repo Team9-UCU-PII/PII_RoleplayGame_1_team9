@@ -6,28 +6,18 @@ namespace Program
     {
         public static void Ataque(Personaje atacante, Personaje atacado)
         {
-            atacado.hpactualizado -= atacante.ataque - atacado.defensa
+            atacado.HP -= atacante.Ataque - atacado.Defensa;
 
-            //se le envía los datos de los personajes implicados para que se imprima en pantalla
-            ConsoleLogger(atacante.nombre, atacante.arma, atacado.nombre, atacado.defensa, atacado.hpactualizado);
+            //se le envía los datos de los personajes implicados en ataque para que se imprima en pantalla
+            ConsoleLogger.ImprimirAtaque(atacante, atacado);
         }
 
-        public static void Curacion(Personaje sanado, Personaje sanador)
+        public static void Curacion(Personaje sanador, Personaje sanado)
         {
-            sanado.hpactualizado += sanador.hechizo
+            sanado.HP += sanador.Hechizo;
             
-            if (sanado.nombre == sanador.nombre)
-            {
-                //personaje que se sana a sí mismo
-                ConsoleLogger(sanado.nombre);
-            }
-            else
-            {
-                //personaje sanado por otro
-               ConsoleLogger(sanado.nombre, sanador.nombre); 
-            }
-             
+            //se le envía los datos de los personajes implicados en curación para que se imprima en pantalla
+            ConsoleLogger.ImprimirAtaque(sanado, sanador);
         }
-
     }
 }
