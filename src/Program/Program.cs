@@ -50,16 +50,16 @@ namespace Program
             agregarItemAlCatalogo("Armadura de Cuero", "ARMADURA", 0, 4);
             agregarItemAlCatalogo("Armadura de Acero", "ARMADURA", 0, 8);
             agregarItemAlCatalogo("Libro de Curación", "LIBRO", 0, 0);
-                Hechizo smallCure = new Hechizo ("Cura Pequeña", "Curación", 10);
-                GetItem("Libro de Curación").AñadirHechizo(smallCure);
+            Hechizo smallCure = new Hechizo ("Cura Pequeña", "Curación", 10);
+            GetItem("Libro de Curación").AñadirHechizo(smallCure);
             agregarItemAlCatalogo("Libro de Hechizos de Fuego", "LIBRO", 0, 0);
-                Hechizo smallDmg = new Hechizo ("Bola de Fuego pequeña", "Daño", 12);
-                GetItem("Libro de Hechizos de Fuego").AñadirHechizo(smallDmg);
+            Hechizo smallDmg = new Hechizo ("Bola de Fuego pequeña", "Daño", 12);
+            GetItem("Libro de Hechizos de Fuego").AñadirHechizo(smallDmg);
             agregarItemAlCatalogo("Libro Maestro de Magia", "LIBRO", 0, 0);
-                Hechizo bigCure = new Hechizo ("Sanación Profunda", "Curación", 20);
-                Hechizo bigDmg = new Hechizo ("Misil mágico", "Daño", 22);
-                GetItem("Libro Maestro de Magia").AñadirHechizo(bigCure);
-                GetItem("Libro Maestro de Magia").AñadirHechizo(bigDmg);
+            Hechizo bigCure = new Hechizo ("Sanación Profunda", "Curación", 20);
+            Hechizo bigDmg = new Hechizo ("Misil mágico", "Daño", 22);
+            GetItem("Libro Maestro de Magia").AñadirHechizo(bigCure);
+            GetItem("Libro Maestro de Magia").AñadirHechizo(bigDmg);
         }
 
         private static void agregarItemAlCatalogo(string name, string tipo, int daño, int def)
