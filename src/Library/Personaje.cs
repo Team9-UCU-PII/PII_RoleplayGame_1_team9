@@ -92,5 +92,19 @@ namespace Program
         return def + K_defensaBase;
       }
     }
+
+    public Item LibroEquipado
+    {
+      get{
+        foreach (Item item in inventario)
+        {
+          if(item.Tipo == "LIBRO")
+          {
+            return item;
+          }
+        }
+        return null;
+      }
+    }
   }
 } 
