@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace Program
 {
@@ -8,6 +9,12 @@ namespace Program
     private const int K_ataqueBase = 5;
     private const int K_defensaBase = 2;
     private const int K_maxHP = 100;
+
+    private string nombre;
+
+    private string especie;
+
+    private static string[] especiesValidas = {"MAGO", "ENANO", "ELFO"};
     public Personaje(string nombre, string especie)
     {
       this.Nombre = nombre;
@@ -16,22 +23,44 @@ namespace Program
     }
 
     public string Nombre{get; set;}
-    public string Especie{get; set;}
-    private ArrayList inventario;
+    public string Especie
+    {
+      get{
+        return this.especie;
+      }
+      set{
+          if (especiesValidas.Contains(value.ToUpper()))
+          {
+            this.especie = value.ToUpper();
+          }else
+          {
+            this.especie  = null;
+          }
+      }
+    }
+    private ArrayList inventario = new ArrayList();
+
+    public ArrayList Inventario
+      {
+        get
+      {
+        return this.inventario;
+      }
+    }
     public void AddItem(Item item)
     {
-      inventario.Add(item);
+      this.Inventario.Add(item);
     }
     public void RemoveItem(Item item)
     {
-      inventario.Remove(item);
+      this.Inventario.Remove(item);
     }
 
     public Item Arma 
     {
       get
       {
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMA")
           {
@@ -64,7 +93,7 @@ namespace Program
     {
       get {
         int arma = 0;
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMA")
           {
@@ -82,7 +111,7 @@ namespace Program
     {
       get{
         int def = 0;
-        foreach (Item item in inventario)
+        foreach (Item item in this.Inventario)
         {
           if(item.Tipo == "ARMADURA")
           {
@@ -96,14 +125,19 @@ namespace Program
     public Item LibroEquipado
     {
       get{
-        foreach (Item item in inventario)
-        {
-          if(item.Tipo == "LIBRO")
+        if(this.especie == "MAGO"){
+          foreach (Item item in this.Inventario)
           {
-            return item;
+            if(item.Tipo == "LIBRO")
+            {
+              return item;
+            }
           }
+          return null;
         }
-        return null;
+        else{
+          return null;
+        }
       }
     }
   }

@@ -22,7 +22,7 @@ namespace Program {
             Console.WriteLine(sb.ToString());
         }
 
-        public static void ImprimirLanzamientoHechizoDaño(Personaje lanzador, Hechizo hechizo, Personaje objetivo) {
+        public static void ImprimirLanzamientoHechizo(Personaje lanzador, Hechizo hechizo, Personaje objetivo) {
             StringBuilder sb = new StringBuilder();
             sb.Append($"{lanzador.Nombre} lanzó el hechizo {hechizo.Nombre} a {objetivo.Nombre}, ");
             switch (hechizo.TipoEfecto) {
