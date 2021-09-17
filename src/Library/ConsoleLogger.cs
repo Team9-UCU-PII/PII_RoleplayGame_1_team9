@@ -39,5 +39,12 @@ namespace Program {
             }
             Console.WriteLine(sb.ToString());
         }
+
+        public static void VerAtaqueYDefensa(Personaje personaje)
+        //El metodo para "ver" (o como interpreteamos, "ver en consola") es delegada a la clase ConsoleLogger, ya que la responsabilidad de esta es devolver feedback al usuario
+        //a través de la consola, por lo que va de la mano con esta tarea. Es una aplicación de patrón SRP.
+        {
+            Console.WriteLine($"{personaje.Nombre} tiene {personaje.Ataque} puntos de Ataque y {personaje.Defensa} puntos de Armadura");
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Program
         {
             popularCatalogoItems();
 
-    //los personajes los ideaban cada integrante, Alonso solo escribió la implementación
+        //los personajes los ideaban cada integrante, Alonso solo escribió la implementación
             Personaje maxiChar = new Personaje("Legolas", "ELFO");
             agregarItemAlCatalogo("Arco élfico", "ARMA", 14, 0);
             agregarItemAlCatalogo("Cota de Malla élfica", "ARMADURA", 0, 8);
@@ -40,6 +40,12 @@ namespace Program
             alonsoChar.AddItem(GetItem("Mjollnir"));
             alonsoChar.AddItem(GetItem("Cota de Konan"));
 
+        //Metodos de ver ataque y defensa
+            ConsoleLogger.VerAtaqueYDefensa(danaChar);
+            ConsoleLogger.VerAtaqueYDefensa(maxiChar);
+            ConsoleLogger.VerAtaqueYDefensa(marceChar);
+            ConsoleLogger.VerAtaqueYDefensa(alonsoChar);
+
         //interacciones entre los personajes
 
             Interacciones.LanzamientoHechizo(danaChar, magiaDana, maxiChar);
@@ -48,7 +54,7 @@ namespace Program
         }
 
         private static ArrayList catalogoItems = new ArrayList(); 
-        //por si alguno le falta inspiracion
+        //por si alguno le falta inspiracion, una serie de objetos genericos
 
         private static void popularCatalogoItems()
         {

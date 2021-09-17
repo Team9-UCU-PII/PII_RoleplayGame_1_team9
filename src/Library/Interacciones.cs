@@ -4,6 +4,8 @@ namespace Program
 {
     public static class Interacciones
     {
+        //esta clase se responsabiliza de manejar los diferentes tipos de interacciones a nivel matematico, ya que puede facilmente acceder a los datos de los
+        //personajes implicados y realizar las operaciones y controles necesarios. Es aplicación de EXPERT y SRP, al delegar la impresión a ConsoleLogger
         public static void Ataque(Personaje atacante, Personaje atacado)
         {
             atacado.HP -= atacante.Ataque - atacado.Defensa;
