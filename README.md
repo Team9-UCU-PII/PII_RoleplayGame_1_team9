@@ -30,13 +30,14 @@ Los personajes necesitan de ciertos elementos para poder combatir con sus enemig
 
 Existe un elemento particularmente interesante, llamado libro de hechizos. El libro de hechizos es tan poderoso como hechizos tenga en él, y representa el conocimiento de un mago.
 
-# Desafío
+# Desafío realizado por Santiago Alonso, Maximiliano Benítez, Dana Castroman y Marcelo Arrarte
+# Link Git: https://github.com/Team9-UCU-PII/PII_RoleplayGame_1_team9.git
 
-## Parte 0: Repo
+## Parte 0: Repo :heavy_check_mark:
 
 Cada equipo deberá crear un repo para el desarrollo de este juego. Todos los miembros del equipo deberán tener acceso al repo.
 
-## Parte 1: Modelado
+## Parte 1: Modelado :heavy_check_mark:
 
 En equipo, modelen las clases y las colaboraciones que son necesarias para representar los elementos del juego mencioandos.
 
@@ -44,7 +45,7 @@ Recuerden: los personajes deben poder tener items. Por ejemplo, los magos pueden
 
 Deberán crear y subir al repositorio el modelo en forma de diagrama de clases.
 
-## Parte 2: Creación
+## Parte 2: Creación :heavy_check_mark:
 
 Cada equipo deberá crear las clases representadas en el modelo anterior. Cada integrante deberá crear, al menos:
 
@@ -71,7 +72,7 @@ Los elementos tienen un valor de ataque y un valor de defensa. Es posible que en
 Finalmente, integrar el código creado al repositorio utilizando [Pull Requests](https://help.github.com/es/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request). 
 >Recuerden: los Pull Requests deben ser revisados y aceptados por _otro_ integrante del equipo.
 
-## Parte 3: Cobrando poder
+## Parte 3: Cobrando poder :heavy_check_mark:
 
 Agregar al proyecto el siguiente comportamiento:
 
@@ -85,7 +86,7 @@ Agregar al proyecto el siguiente comportamiento:
 
 Justificar con comentarios en el código las decisiones que tomaron para resolver esta parte del desafío, incluyendo si utilizaron algun patrón o principio.
 
-## Parte 4: Testing
+## Parte 4: Testing :heavy_check_mark:
 
 Deberán escribir casos de test para probar su programa. Como equipo tendrán que evaluar qué casos de test son necesarios, y deberán incluír la justificación de cada caso de test como comentario en el código del proyecto.
 

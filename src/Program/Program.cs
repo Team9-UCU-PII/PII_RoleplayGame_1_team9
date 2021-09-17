@@ -10,7 +10,7 @@ namespace Program
         {
             popularCatalogoItems();
 
-    //los personajes los ideaban cada integrante, Alonso solo escribió la implementación
+        //los personajes los ideaban cada integrante, Alonso solo escribió la implementación
             Personaje maxiChar = new Personaje("Legolas", "ELFO");
             agregarItemAlCatalogo("Arco élfico", "ARMA", 14, 0);
             agregarItemAlCatalogo("Cota de Malla élfica", "ARMADURA", 0, 8);
@@ -26,22 +26,35 @@ namespace Program
             
             Personaje marceChar = new Personaje("Isandril", "MAGO");
             agregarItemAlCatalogo("Arcaneum", "LIBRO", 0, 0);
+                Hechizo magiaMarce2 = new Hechizo("Rejuvenecer", "Curación", 50);
                 Hechizo magiaMarce = new Hechizo("Tormenta de Arena", "Daño", 45);
                 GetItem("Arcaneum").AñadirHechizo(magiaMarce);
+                GetItem("Arcaneum").AñadirHechizo(magiaMarce2);
             agregarItemAlCatalogo("Toga de Fuego", "ARMADURA", 0, 12);
             marceChar.AddItem(GetItem("Toga de Fuego"));
             marceChar.AddItem(GetItem("Arcaneum"));
 
             Personaje alonsoChar = new Personaje("Torbjorn", "ENANO");
-            agregarItemAlCatalogo("Mjollnir", "ARMA", 18, 0);
+            agregarItemAlCatalogo("Mjollnir", "ARMA", 85, 0);
             agregarItemAlCatalogo("Cota de Konan", "ARMADURA", 0, 15);
             alonsoChar.AddItem(GetItem("Mjollnir"));
             alonsoChar.AddItem(GetItem("Cota de Konan"));
 
+        //Metodos de ver ataque y defensa
+            ConsoleLogger.VerAtaqueYDefensa(danaChar);
+            ConsoleLogger.VerAtaqueYDefensa(maxiChar);
+            ConsoleLogger.VerAtaqueYDefensa(marceChar);
+            ConsoleLogger.VerAtaqueYDefensa(alonsoChar);
+
+        //interacciones entre los personajes
+
+            Interacciones.LanzamientoHechizo(danaChar, magiaDana, maxiChar);
+            Interacciones.LanzamientoHechizo(marceChar, magiaMarce2, maxiChar);
+            Interacciones.Ataque(alonsoChar, maxiChar);
         }
 
         private static ArrayList catalogoItems = new ArrayList(); 
-        //por si alguno le falta inspiracion
+        //por si alguno le falta inspiracion, una serie de objetos genericos
 
         private static void popularCatalogoItems()
         {

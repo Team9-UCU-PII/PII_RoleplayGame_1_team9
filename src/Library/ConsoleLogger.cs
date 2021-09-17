@@ -5,7 +5,7 @@ namespace Program {
     public static class ConsoleLogger {
         public static void ImprimirAtaque(Personaje atacante, Personaje atacado) {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{atacante.Nombre} atacó a {atacado.Nombre} con {atacante.Arma}.");
+            sb.Append($"{atacante.Nombre} atacó a {atacado.Nombre} con {atacante.Arma.Nombre}.");
             if (atacado.HP > 0) {
                 sb.Append($" {atacado.Nombre} quedó con {atacado.HP} HP.");
             }
@@ -38,6 +38,13 @@ namespace Program {
                 sb.Append($" {objetivo.Nombre} ha muerto.");
             }
             Console.WriteLine(sb.ToString());
+        }
+
+        public static void VerAtaqueYDefensa(Personaje personaje)
+        //El metodo para "ver" (o como interpreteamos, "ver en consola") es delegada a la clase ConsoleLogger, ya que la responsabilidad de esta es devolver feedback al usuario
+        //a través de la consola, por lo que va de la mano con esta tarea. Es una aplicación de patrón SRP.
+        {
+            Console.WriteLine($"{personaje.Nombre} tiene {personaje.Ataque} puntos de Ataque y {personaje.Defensa} puntos de Armadura");
         }
     }
 }
