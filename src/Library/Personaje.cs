@@ -10,8 +10,6 @@ namespace Program
     private const int K_defensaBase = 2;
     private const int K_maxHP = 100;
 
-    private string nombre;
-
     private string especie;
 
     private static string[] especiesValidas = {"MAGO", "ENANO", "ELFO"};
