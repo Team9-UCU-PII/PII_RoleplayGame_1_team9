@@ -31,7 +31,7 @@ Los personajes necesitan de ciertos elementos para poder combatir con sus enemig
 Existe un elemento particularmente interesante, llamado libro de hechizos. El libro de hechizos es tan poderoso como hechizos tenga en él, y representa el conocimiento de un mago.
 
 # Desafío realizado por Santiago Alonso, Maximiliano Benítez, Dana Castroman y Marcelo Arrarte
-# Link Git: https://github.com/Team9-UCU-PII/PII_RoleplayGame_1_team9.git
+### Link Git: https://github.com/Team9-UCU-PII/PII_RoleplayGame_1_team9.git
 
 ## Parte 0: Repo :heavy_check_mark:
 
